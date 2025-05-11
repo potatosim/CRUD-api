@@ -1,10 +1,8 @@
-import { createServer } from 'node:http';
-import { config } from 'dotenv';
+import UsersDB from './data/users';
+import { createUsersServer } from './server';
 
-config();
+const PORT = process.env.PORT || 3000;
 
-const server = createServer();
-
-server.listen(process.env.PORT || 3000, () => {
-  console.log(`Server successfully starts and listen port=${process.env.PORT}`);
+createUsersServer(new UsersDB()).listen(PORT, () => {
+  console.log(`Server successfully starts and listen port=${PORT}`);
 });
