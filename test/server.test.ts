@@ -1,10 +1,9 @@
 import { describe, it, expect } from 'vitest';
 import request from 'supertest';
 import { createUsersServer } from '../src/server';
-import UsersDB from '../src/data/users';
 
 describe('CRUD-API tests', () => {
-  const api = request(createUsersServer(new UsersDB()));
+  const api = request(createUsersServer());
 
   // To store created userId between tests
   let userId = '';

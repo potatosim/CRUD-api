@@ -1,8 +1,7 @@
-import UsersDB from './data/users';
 import { createUsersServer } from './server';
 
-const PORT = process.env.PORT || 3000;
+const USERS_API_PORT = process.env.PORT || 3000;
 
-createUsersServer(new UsersDB()).listen(PORT, () => {
-  console.log(`Server successfully starts and listen port=${PORT}`);
+createUsersServer().listen(USERS_API_PORT, () => {
+  console.log(`Server successfully starts and listen port=${USERS_API_PORT}`);
 });

@@ -8,8 +8,10 @@ import { isUuid, validateCreateUserDto, validateUpdateUserDto } from './data/use
 import { HttpCodes } from './enums/HttpCodes';
 import { sendResponseData } from './utils/responseUtils';
 
-export const createUsersServer = (users: UsersDB) => {
+export const createUsersServer = () => {
   config();
+
+  const users = new UsersDB();
 
   const endpoints: EndpointMap = {
     getUsers: {
