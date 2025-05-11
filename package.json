@@ -5,8 +5,9 @@
   "main": "index.ts",
   "scripts": {
     "start:dev": "ts-node-dev --respawn --transpile-only src/index.ts",
-    "build": "tsc",
-    "start:prod": "node dist/server.js"
+    "start:prod": "tsc && node build/index.js",
+    "start:multi": "ts-node-dev --respawn --transpile-only src/cluster.ts",
+    "test": "vitest"
   },
   "repository": {
     "type": "git",
@@ -27,10 +28,14 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.26.0",
+    "@types/supertest": "^6.0.3",
+    "@types/uuid": "^10.0.0",
     "eslint": "^9.26.0",
     "globals": "^16.1.0",
+    "supertest": "^7.1.0",
     "ts-node-dev": "^2.0.0",
     "typescript": "^5.0.0",
-    "typescript-eslint": "^8.32.0"
+    "typescript-eslint": "^8.32.0",
+    "vitest": "^3.1.3"
   }
 }
