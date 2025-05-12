@@ -7,7 +7,7 @@ import { createProxy } from '../utils/proxy';
 
 config();
 
-const USERS_API_PORT = Number(process.env.PORT) || 3000;
+const DB_SERVICE_PORT = Number(process.env.DB_SERVICE_PORT) || 6379;
 const BALANCER_PORT = Number(process.env.BALANCER_PORT) || 4000;
 const CPUS = os.availableParallelism?.() || os.cpus().length;
 const MAX_WORKERS = CPUS - 1;
@@ -46,7 +46,7 @@ export const createBalancer = () => {
     console.log(`Load balancer listening on port ${BALANCER_PORT}`);
   });
 
-  createUsersServer().listen(USERS_API_PORT, () => {
-    console.log(`UserAPI listening on port ${USERS_API_PORT}`);
+  createUsersServer().listen(DB_SERVICE_PORT, () => {
+    console.log(`UserAPI listening on port ${DB_SERVICE_PORT}`);
   });
 };
